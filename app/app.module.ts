@@ -11,6 +11,7 @@ import { PageHeaderMenuComponent }   from './page-header-menu.component';
 import { PageHeaderTopbarComponent }   from './page-header-topbar.component';
 import { PageMiddleComponent }   from './page-middle.component';
 import { DashboardComponent }   from './dashboard.component';
+import { UserComponent }   from './user.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { DashboardComponent }   from './dashboard.component';
     PageHeaderMenuComponent,
     PageHeaderTopbarComponent,
     PageMiddleComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserComponent
   ],
   bootstrap: [AppComponent]
 })
