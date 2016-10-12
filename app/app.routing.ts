@@ -2,7 +2,7 @@ import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent }     from './dashboard.component';
-import { UserComponent }   from './user.component';
+import { EmployeeTrackingComponent }   from './employee-tracking.component';
 
 
 const appRoutes: Routes = [
@@ -16,8 +16,8 @@ const appRoutes: Routes = [
     component: DashboardComponent
   },
     {
-    path: 'user',
-    component: UserComponent
+    path: 'employee-tracking',
+    component: EmployeeTrackingComponent
   }  
 ];
 

@@ -1,0 +1,470 @@
+<div class="row">
+    <div class="col-md-6 col-sm-6">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase font-dark">Employee</span>
+                    <span class="caption-helper">Tracking...</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>                      
+                            <th>Type</th>                      
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let employee of data.Employee">
+                            <td>
+                                <p>{{ employee.id}}</p>
+                            </td>
+                            <td>
+                                <p>{{ employee.name}}</p>
+                            </td>
+                            <td>
+                                <p>{{ employee.type }}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase font-dark">Location</span>
+                    <span class="caption-helper">Tracking...</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Floor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let sensor of data.Sensor">
+                            <td>
+                                <p>{{ sensor.id}}</p>
+                            </td>
+                            <td>
+                                <p>{{ sensor.name}}</p>
+                            </td>
+                            <td>
+                                <p>{{ sensor.floor }}</p>
+                            </td> 
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-sm-6">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase font-dark">Area</span>
+                    <span class="caption-helper">Tracking...</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Area Name</th>   
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let area of data.Area">
+                            <td>
+                                <p>{{ area.id}}</p>
+                            </td>
+                            <td>
+                                <p>{{ area.name}}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase font-dark">Event</span>
+                    <span class="caption-helper">Tracking...</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let sensor of data.Event">
+                            <td>
+                                <p>{{ sensor.id}}</p>
+                            </td>
+                            <td>
+                                <p>{{ sensor.name}}</p>
+                            </td>                           
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase font-dark">Location Data</span>
+                    <span class="caption-helper">Tracking...</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>User Id</th>
+                            <th>Range Id</th>                           
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>X1</th>
+                            <th>X2</th>
+                            <th>X3</th>
+                            <th>X4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let location of data.Location">
+                            <td>
+                                <p>{{ location.id}}</p>
+                            </td>
+                            <td>
+                                <p>{{ location.userId}}</p>
+                            </td>
+                            <td>
+                                <p>{{ location.rangeId }}</p>
+                            </td>
+                            <td>
+                                <p>{{ location.date}}</p>
+                            </td>
+                            <td>
+                                <p>{{ location.time}}</p>
+                            </td>
+                            <td>
+                                <p>{{ location.x1}}</p>
+                            </td>
+                            <td>
+                                <p>{{ location.x2}}</p>
+                            </td>
+                            <td>
+                                <p>{{ location.x3}}</p>
+                            </td>
+                            <td>
+                                <p>{{ location.x4}}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-sm-6">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase font-dark">Event Detail</span>
+                    <span class="caption-helper">Tracking...</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Event Id</th>  
+                            <th>User Id</th>
+                            <th>Date</th>
+                            <th>Time</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let eventDetail of data.EventDetail">
+                            <td>
+                                <p>{{ eventDetail.id}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.eventId}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.userId}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.date}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.time}}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase font-dark">Range</span>
+                    <span class="caption-helper">Tracking...</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Area Id</th>  
+                            <th>Sensor Id</th>
+                            <th>Min</th>
+                            <th>Max</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let eventDetail of data.Range">
+                            <td>
+                                <p>{{ eventDetail.id}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.areaId}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.sensorId}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.min}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.max}}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-sm-6">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase font-dark">Track By Location</span>                  
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Location</th>  
+                            <th>User Id</th>
+                            <th>Date</th>
+                            <th>Time</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let eventDetail of data.EventDetail">
+                            <td>
+                                <p>{{ eventDetail.id}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.eventId}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.userId}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.date}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.time}}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase font-dark">Range</span>
+                    <span class="caption-helper">Tracking...</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Area Id</th>  
+                            <th>Sensor Id</th>
+                            <th>Min</th>
+                            <th>Max</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let eventDetail of data.Range">
+                            <td>
+                                <p>{{ eventDetail.id}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.areaId}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.sensorId}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.min}}</p>
+                            </td>
+                            <td>
+                                <p>{{ eventDetail.max}}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-sm-6">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold uppercase font-dark">Track By Date</span>                  
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <select class='form-control' (change)="onChange($event.target.value)">
+                        <option> Select Date</option>
+                        <option *ngFor="let date of dates">{{date}}</option>
+                </select>
+            </div>
+        </div> 
+            <div class="portlet-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Employee Name</th>
+                            <th>Time</th>
+                            <th>Area</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of modifiedData">
+                            <td>
+                                <p>{{ data.employeeName}}</p>
+                            </td>
+                            <td>
+                                <p>{{ data.time}}</p>
+                            </td>
+                             <td>
+                                <p>{{ data.area}}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <div class="portlet light ">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject bold uppercase font-dark">Track By Employee Name</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <select class='form-control' [(ngModel)]="employeeModel.id">                       
+                        <option *ngFor="let employee of data.Employee" [value]="employee.id">{{employee.name}}</option>
+                </select>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <select class='form-control' [(ngModel)]="employeeModel.date">                                   
+                    <option *ngFor="let date of dates">{{date}}</option>
+                </select>
+            </div>  
+            <div class="col-md-4 col-sm-4">
+               <button type="button" class="btn btn-default" (click)="search()">Search</button>
+            </div>          
+        </div> 
+     
+            <div class="portlet-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Employee Name</th>
+                            <th> Date </th>
+                            <th>Time</th>
+                            <th>Area</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of modifiedEmployeeData">
+                            <td>
+                                <p>{{ data.employeeName}}</p>
+                            </td>
+                            <td>
+                                <p>{{ data.date}}</p>
+                            </td>
+                            <td>
+                                <p>{{ data.time}}</p>
+                            </td>
+                            <td>
+                                <p>{{ data.area}}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

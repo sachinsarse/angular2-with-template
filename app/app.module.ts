@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { routing }              from './app.routing';
 import { ChartModule } from 'angular2-highcharts';
 import { HttpModule }    from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent }   from './app.component';
 import { FooterComponent }   from './footer.component';
@@ -11,14 +12,15 @@ import { PageHeaderMenuComponent }   from './page-header-menu.component';
 import { PageHeaderTopbarComponent }   from './page-header-topbar.component';
 import { PageMiddleComponent }   from './page-middle.component';
 import { DashboardComponent }   from './dashboard.component';
-import { UserComponent }   from './user.component';
+import { EmployeeTrackingComponent }   from './employee-tracking.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     routing,
     ChartModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,
@@ -28,7 +30,7 @@ import { UserComponent }   from './user.component';
     PageHeaderTopbarComponent,
     PageMiddleComponent,
     DashboardComponent,
-    UserComponent
+    EmployeeTrackingComponent
   ],
   bootstrap: [AppComponent]
 })

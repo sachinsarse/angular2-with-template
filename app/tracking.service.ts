@@ -2,11 +2,11 @@ import { Injectable }    from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
 @Injectable()
-export class UserService {
+export class TrackingService {
  
   constructor(private http: Http) { }
 
-  getUsers(): Promise<any> {
+  getEmployee(): Promise<any> {
     return this.http.get('https://spreadsheets.google.com/feeds/list/1nYWVUfdWa3ilqP6NMQ9h5lmmuzMjONmbX0QIH8ugz1Y/1/public/values?alt=json')
                .toPromise()
                .then(response => response.json())
