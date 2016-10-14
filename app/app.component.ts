@@ -8,8 +8,8 @@ declare var QuickSidebar, Layout, App: any;
 
 export class AppComponent {
   ngOnInit() {
-    QuickSidebar.init();
-    Layout.init();
-    App.init();
+        App.init();
+        Layout.init();      
+        QuickSidebar.init()
   }
 }

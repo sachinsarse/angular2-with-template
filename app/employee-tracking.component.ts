@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { TrackingService } from './tracking.service';
 import * as moment from 'moment';
 import * as _ from 'lodash';
+import { Employee } from './employee';
+import { Location } from './location';
+import { Area } from './area';
+import { Range } from './range';
 
 @Component({
   selector: 'employee-tracking',
@@ -13,42 +17,46 @@ import * as _ from 'lodash';
 export class EmployeeTrackingComponent implements OnInit {   
     data: any;
     modifiedData: any;
-    modifiedEmployeeData :any;
-    employeeModel = {};
+    modifiedEmployeeData :any;   
+    employee : Employee[] = [];
+    location : Location[] = [];
+    area : Area[] = [];
+    range : Range[] = [];
     dates = '10/10/2016 10/07/2016 10/06/2016'.split(' ');
+    employeeId : '';
+    date: '';
     constructor(private trackingService: TrackingService) {
     }
 
     ngOnInit(): void {
         this.data = {};
-        this.modifiedData = [];      
+        this.modifiedData = [];     
         var curentScope = this;
         this.trackingService.getEmployee()
-            .then(function (response) {             
-                curentScope.data.Employee = [];
+            .then(function (response) { 
                 for (var count = 0; count < response.feed.entry.length; count++) {
-                    curentScope.data.Employee.push(
+                    curentScope.employee.push(
                         {
                             'id': response.feed.entry[count].gsx$id.$t,
                             'name': response.feed.entry[count].gsx$name.$t,
-                            'type': response.feed.entry[count].gsx$type.$t
+                            'type': response.feed.entry[count].gsx$type.$t                          
                         }
                     )
                 }
-                console.log('Employee', curentScope.data.Employee);
+                console.log('Employee', curentScope.employee);
             });
         this.trackingService.getArea()
-            .then(function (response) {              
-                curentScope.data.Area = [];
+            .then(function (response) {             
+             
                 for (var count = 0; count < response.feed.entry.length; count++) {
-                    curentScope.data.Area.push(
+                    curentScope.area.push(
                         {
                             'id': response.feed.entry[count].gsx$id.$t,
                             'name': response.feed.entry[count].gsx$name.$t
                         }
                     )
                 }
-                console.log('Area', curentScope.data.Area);
+                console.log('Area', curentScope.area);
             });
         this.trackingService.getSensor()
             .then(function (response) {           
@@ -65,10 +73,9 @@ export class EmployeeTrackingComponent implements OnInit {
                 console.log('Sensor', curentScope.data.Sensor);
             });
         this.trackingService.getLocation()
-            .then(function (response) { 
-                curentScope.data.Location = [];
+            .then(function (response) {              
                 for (var count = 0; count < response.feed.entry.length; count++) {
-                    curentScope.data.Location.push(
+                    curentScope.location.push(
                         {
                             'id': response.feed.entry[count].gsx$id.$t,
                             'date': response.feed.entry[count].gsx$date.$t,
@@ -82,7 +89,7 @@ export class EmployeeTrackingComponent implements OnInit {
                         }
                     )
                 }
-                console.log('Location', curentScope.data.Location);
+                console.log('Location', curentScope.location);
             });
         this.trackingService.getEventDetails()
             .then(function (response) {                                
@@ -114,10 +121,9 @@ export class EmployeeTrackingComponent implements OnInit {
                 console.log('Event', curentScope.data.Event);
             });
         this.trackingService.getRange()
-            .then(function (response) {               
-                curentScope.data.Range = [];
+            .then(function (response) { 
                 for (var count = 0; count < response.feed.entry.length; count++) {
-                    curentScope.data.Range.push(
+                    curentScope.range.push(
                         {
                             'id': response.feed.entry[count].gsx$id.$t,
                             'areaId': response.feed.entry[count].gsx$areaid.$t,
@@ -127,14 +133,14 @@ export class EmployeeTrackingComponent implements OnInit {
                         }
                     )
                 }
-                console.log('Range', curentScope.data.Range);
+                console.log('Range', curentScope.range);
             });
 
     }
     
     onChange(newValue) {
         this.modifiedData = [];
-        var filteredRecords = _.filter(this.data.Location, function (location) {
+        var filteredRecords = _.filter(this.location, function (location) {
             return location.date == newValue;
         });
         for (var count = 0; count < filteredRecords.length; count++) {
@@ -143,16 +149,16 @@ export class EmployeeTrackingComponent implements OnInit {
                     'time': filteredRecords[count].time
                 }
             )
-            this.modifiedData[count].employeeName = _.find(this.data.Employee, { 'id': filteredRecords[count].userId }).name;
-            this.modifiedData[count].area = _.find(this.data.Area, { 'id': _.find(this.data.Range, { 'id': filteredRecords[count].rangeId }).areaId }).name;
+            this.modifiedData[count].employeeName = _.find(this.employee, { 'id': filteredRecords[count].userId }).name;
+            this.modifiedData[count].area = _.find(this.area, { 'id': _.find(this.range, { 'id': filteredRecords[count].rangeId }).areaId }).name;
         }
     }
 
     search (){
         var currentScope= this;
         this.modifiedEmployeeData = [];
-        var filteredRecords = _.filter(this.data.Location, function (employee) {
-            return employee.userId == currentScope.employeeModel.id && employee.date == currentScope.employeeModel.date;
+        var filteredRecords = _.filter(this.location, function (employee) {
+            return employee.userId == currentScope.employeeId && employee.date == currentScope.date;
         });
         for (var count = 0; count < filteredRecords.length; count++) {
             this.modifiedEmployeeData.push(
@@ -161,8 +167,8 @@ export class EmployeeTrackingComponent implements OnInit {
                     'time': filteredRecords[count].time
                 }
             )
-            this.modifiedEmployeeData[count].employeeName = _.find(this.data.Employee, { 'id': filteredRecords[count].userId }).name;
-            this.modifiedEmployeeData[count].area = _.find(this.data.Area, { 'id': _.find(this.data.Range, { 'id': filteredRecords[count].rangeId }).areaId }).name;
+            this.modifiedEmployeeData[count].employeeName = _.find(this.employee, { 'id': filteredRecords[count].userId }).name;
+            this.modifiedEmployeeData[count].area = _.find(this.area, { 'id': _.find(this.range, { 'id': filteredRecords[count].rangeId }).areaId }).name;
         }
     }
 }

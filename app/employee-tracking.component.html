@@ -17,15 +17,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let employee of data.Employee">
+                        <tr *ngFor="let emp of employee">
                             <td>
-                                <p>{{ employee.id}}</p>
+                                <p>{{ emp.id}}</p>
                             </td>
                             <td>
-                                <p>{{ employee.name}}</p>
+                                <p>{{ emp.name}}</p>
                             </td>
                             <td>
-                                <p>{{ employee.type }}</p>
+                                <p>{{ emp.type }}</p>
                             </td>
                         </tr>
                     </tbody>
@@ -38,7 +38,7 @@
         <div class="portlet light ">
             <div class="portlet-title">
                 <div class="caption">
-                    <span class="caption-subject bold uppercase font-dark">Location</span>
+                    <span class="caption-subject bold uppercase font-dark">Sensor</span>
                     <span class="caption-helper">Tracking...</span>
                 </div>
             </div>
@@ -88,12 +88,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let area of data.Area">
+                        <tr *ngFor="let rec of area">
                             <td>
-                                <p>{{ area.id}}</p>
+                                <p>{{ rec.id}}</p>
                             </td>
                             <td>
-                                <p>{{ area.name}}</p>
+                                <p>{{ rec.name}}</p>
                             </td>
                         </tr>
                     </tbody>
@@ -139,7 +139,7 @@
         <div class="portlet light ">
             <div class="portlet-title">
                 <div class="caption">
-                    <span class="caption-subject bold uppercase font-dark">Location Data</span>
+                    <span class="caption-subject bold uppercase font-dark">Location</span>
                     <span class="caption-helper">Tracking...</span>
                 </div>
             </div>
@@ -159,33 +159,33 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let location of data.Location">
+                        <tr *ngFor="let rec of location">
                             <td>
-                                <p>{{ location.id}}</p>
+                                <p>{{ rec.id}}</p>
                             </td>
                             <td>
-                                <p>{{ location.userId}}</p>
+                                <p>{{ rec.userId}}</p>
                             </td>
                             <td>
-                                <p>{{ location.rangeId }}</p>
+                                <p>{{ rec.rangeId }}</p>
                             </td>
                             <td>
-                                <p>{{ location.date}}</p>
+                                <p>{{ rec.date}}</p>
                             </td>
                             <td>
-                                <p>{{ location.time}}</p>
+                                <p>{{ rec.time}}</p>
                             </td>
                             <td>
-                                <p>{{ location.x1}}</p>
+                                <p>{{ rec.x1}}</p>
                             </td>
                             <td>
-                                <p>{{ location.x2}}</p>
+                                <p>{{ rec.x2}}</p>
                             </td>
                             <td>
-                                <p>{{ location.x3}}</p>
+                                <p>{{ rec.x3}}</p>
                             </td>
                             <td>
-                                <p>{{ location.x4}}</p>
+                                <p>{{ rec.x4}}</p>
                             </td>
                         </tr>
                     </tbody>
@@ -259,108 +259,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let eventDetail of data.Range">
+                        <tr *ngFor="let rec of range">
                             <td>
-                                <p>{{ eventDetail.id}}</p>
+                                <p>{{ rec.id}}</p>
                             </td>
                             <td>
-                                <p>{{ eventDetail.areaId}}</p>
+                                <p>{{ rec.areaId}}</p>
                             </td>
                             <td>
-                                <p>{{ eventDetail.sensorId}}</p>
+                                <p>{{ rec.sensorId}}</p>
                             </td>
                             <td>
-                                <p>{{ eventDetail.min}}</p>
+                                <p>{{ rec.min}}</p>
                             </td>
                             <td>
-                                <p>{{ eventDetail.max}}</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6 col-sm-6">
-        <div class="portlet light ">
-            <div class="portlet-title">
-                <div class="caption">
-                    <span class="caption-subject bold uppercase font-dark">Track By Location</span>                  
-                </div>
-            </div>
-            <div class="portlet-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Location</th>  
-                            <th>User Id</th>
-                            <th>Date</th>
-                            <th>Time</th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let eventDetail of data.EventDetail">
-                            <td>
-                                <p>{{ eventDetail.id}}</p>
-                            </td>
-                            <td>
-                                <p>{{ eventDetail.eventId}}</p>
-                            </td>
-                            <td>
-                                <p>{{ eventDetail.userId}}</p>
-                            </td>
-                            <td>
-                                <p>{{ eventDetail.date}}</p>
-                            </td>
-                            <td>
-                                <p>{{ eventDetail.time}}</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-6 col-sm-6">
-        <div class="portlet light ">
-            <div class="portlet-title">
-                <div class="caption">
-                    <span class="caption-subject bold uppercase font-dark">Range</span>
-                    <span class="caption-helper">Tracking...</span>
-                </div>
-            </div>
-            <div class="portlet-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Area Id</th>  
-                            <th>Sensor Id</th>
-                            <th>Min</th>
-                            <th>Max</th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let eventDetail of data.Range">
-                            <td>
-                                <p>{{ eventDetail.id}}</p>
-                            </td>
-                            <td>
-                                <p>{{ eventDetail.areaId}}</p>
-                            </td>
-                            <td>
-                                <p>{{ eventDetail.sensorId}}</p>
-                            </td>
-                            <td>
-                                <p>{{ eventDetail.min}}</p>
-                            </td>
-                            <td>
-                                <p>{{ eventDetail.max}}</p>
+                                <p>{{ rec.max}}</p>
                             </td>
                         </tr>
                     </tbody>
@@ -421,12 +334,12 @@
         </div>
         <div class="row">
             <div class="col-md-4 col-sm-4">
-                <select class='form-control' [(ngModel)]="employeeModel.id">                       
-                        <option *ngFor="let employee of data.Employee" [value]="employee.id">{{employee.name}}</option>
+                <select class='form-control' [(ngModel)]="employeeId">                       
+                        <option *ngFor="let rec of employee" [value]="rec.id">{{rec.name}}</option>
                 </select>
             </div>
             <div class="col-md-4 col-sm-4">
-                <select class='form-control' [(ngModel)]="employeeModel.date">                                   
+                <select class='form-control' [(ngModel)]="date">                                   
                     <option *ngFor="let date of dates">{{date}}</option>
                 </select>
             </div>  
@@ -440,7 +353,7 @@
                     <thead>
                         <tr>
                             <th>Employee Name</th>
-                            <th> Date </th>
+                            <th>Date </th>
                             <th>Time</th>
                             <th>Area</th>
                         </tr>
